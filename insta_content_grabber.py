@@ -28,7 +28,7 @@ def save_image(url, name):
     """
     Saves the image locally onto the computer of the user
     """
-    image = urlretrieve(url, name)
+    urlretrieve(url, name)
     
 if __name__ == '__main__':
 
