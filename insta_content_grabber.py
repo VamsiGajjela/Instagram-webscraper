@@ -6,14 +6,16 @@ def return_link(url, content_type):
     """
     search_val = 'og:image'
     final = None
-
+    flag = True
+    
     if content_type == 'video':
         search_val = 'og:video'
     try:
         for line in urlopen(url):
             line = str(line)
-            if search_val in line:
+            if search_val in line and flag:
                 final = clean_data(line)
+                flag = False
 
             elif 'is_private' in line:
                 clean1 = line.find('"is_private"') + len('"is_private"') - 1
